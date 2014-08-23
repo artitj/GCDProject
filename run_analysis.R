@@ -59,9 +59,10 @@ selectedMeasures <- dataset[c(selectedFeatures[,1],subIdx,actIdx)]
 # Read the activity list
 act_file <- "./UCI HAR Dataset/activity_labels.txt"
 activities <- read.table(act_file,header=F)
-# Make the activity label a factor and use the activity file to do the mapping
+# Make the activity a factor and use the activity file to do the mapping
 # from levels to labels
-selectedMeasures$activityLabel <- factor(selectedMeasures$activityLabel,levels=activities[,1],labels=activities[,2])
+selectedMeasures$activity <- factor(selectedMeasures$activityLabel,levels=activities[,1],labels=activities[,2])
 
 # 4. Label dataset with descriptive variable names
-
+descVarNames <- selectedFeatures[,2]
+names(selectedMeasures)[1:length(descVarNames)] <- descVarNames
