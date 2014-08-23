@@ -72,3 +72,6 @@ names(selectedMeasures)[1:length(descVarNames)] <- as.character(descVarNames)
 # Create a new data frame without the last 3 columns
 tmpData <- subset(selectedMeasures,select=-c(activity,activityLabel,subject))
 tidyData <- aggregate(tmpData,by=list(Activity=selectedMeasures$activity,Subject=selectedMeasures$subject),mean)
+
+# Output the tidy dataset
+write.table(tidyData,"tidyOutput.txt",row.names = F)
