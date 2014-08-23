@@ -65,4 +65,10 @@ selectedMeasures$activity <- factor(selectedMeasures$activityLabel,levels=activi
 
 # 4. Label dataset with descriptive variable names
 descVarNames <- selectedFeatures[,2]
-names(selectedMeasures)[1:length(descVarNames)] <- descVarNames
+names(selectedMeasures)[1:length(descVarNames)] <- as.character(descVarNames)
+
+# 5. Create 2nd independent tidy dataset with average of each variable for each
+# activity and subject
+# Create a new data frame without the last 3 columns
+tmpData <- subset(selectedMeasures,select=-c(activity,activityLabel,subject))
+tidyData <- aggregate(tmpData,by=list(Activity=selectedMeasures$activity,Subject=selectedMeasures$subject),mean)
