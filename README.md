@@ -6,12 +6,19 @@ This repo addresses the course project for the Aug 2014 "Getting and Cleaning" C
 This includes 2 R source files:
 
 * run_analysis.R - creates the tidy dataset (tidyOutput.txt)  
-* makeCodebook.R - creates the CodeBook.md file  
+* makeCodebook.R - creates the CodeBook.md file from codebookHead.md and the 
+tidy dataset (should be run after run_analysis.R) 
 
-There are two Markdown documents:
+There are three Markdown documents:
 
 * README.md - this file
 * CodeBook.md - the code book for the output file tidyOutput.txt
+* codebookHead.md - a Markdown document that contains the header of the 
+Codebook.md
+
+Finally, there is the output tidy dataset:
+
+* tidyOutput.txt
 
 ## Data analysis
 The *run_analysis.R* script does all the data analysis. This assumes a directory "UCI HAR Dataset" exists in the working directory with the contents of 
